@@ -16,6 +16,7 @@ spec:
       containers:
         - name: backend
           image: DOCKER_USERNAME/rahasia-dapur-backend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
           envFrom:

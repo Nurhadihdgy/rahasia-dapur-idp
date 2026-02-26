@@ -31,9 +31,10 @@ jobs:
       - name: Build & Push Backend
         run: |
           docker build -t $DOCKER_USERNAME/rahasia-dapur-backend:$IMAGE_TAG ./backend
+          docker build -t $DOCKER_USERNAME/rahasia-dapur-backend:latest ./backend
+    
           docker push $DOCKER_USERNAME/rahasia-dapur-backend:$IMAGE_TAG
           docker push $DOCKER_USERNAME/rahasia-dapur-backend:latest
-          docker push $DOCKER_USERNAME/rahasia-dapur-backend:$IMAGE_TAG
 
       # ========================
       # FRONTEND
@@ -41,6 +42,7 @@ jobs:
       - name: Build & Push Frontend
         run: |
           docker build -t $DOCKER_USERNAME/rahasia-dapur-frontend:$IMAGE_TAG ./frontend
+          docker build -t $DOCKER_USERNAME/rahasia-dapur-frontend:latest ./frontend
+    
           docker push $DOCKER_USERNAME/rahasia-dapur-frontend:$IMAGE_TAG
           docker push $DOCKER_USERNAME/rahasia-dapur-frontend:latest
-          docker push $DOCKER_USERNAME/rahasia-dapur-frontend:$IMAGE_TAG
