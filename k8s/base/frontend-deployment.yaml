@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: nurhadi/frontend:latest
+          image: DOCKER_USERNAME/rahasia-dapur-frontend:latest
           ports:
             - containerPort: 80
           resources:

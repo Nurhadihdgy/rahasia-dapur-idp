@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: nurhadi/backend:latest
+          image: DOCKER_USERNAME/rahasia-dapur-backend:latest
           ports:
             - containerPort: 5000
           envFrom:
