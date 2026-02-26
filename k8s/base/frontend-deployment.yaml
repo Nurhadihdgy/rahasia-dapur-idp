@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: nurhadihdgy/rahasia-dapur-frontend:latest
+          image: nurhadi850/rahasia-dapur-frontend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80

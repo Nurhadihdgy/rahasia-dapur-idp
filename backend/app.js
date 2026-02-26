@@ -35,10 +35,21 @@ app.use("/api/recipe", recipeRoutes);
 app.use("/api/tips", tipsRoutes);
 app.use("/api/users", userRoutes);
 
-app.get("/health", (req, res) => {
-  res.status(200).send("OK");
-});
+app.get('/health', async (req, res) => {
+  try {
+    await mongoose.connection.db.admin().ping()
 
+    res.status(200).json({
+      status: 'healthy',
+      database: 'connected'
+    })
+  } catch (err) {
+    res.status(500).json({
+      status: 'unhealthy',
+      database: 'disconnected'
+    })
+  }
+})
 app.use((req, res, next) => {
   const error = new Error("Route Not Found");
   error.status = 404;
