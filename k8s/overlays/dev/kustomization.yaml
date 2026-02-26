@@ -1,7 +1,11 @@
-namespace: rahasia-dapur
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 
 resources:
   - ../../base
 
 patches:
-  - replica-patch.yaml
+  - path: replica-patch.yaml
+    target:
+      kind: Deployment
+      name: backend
