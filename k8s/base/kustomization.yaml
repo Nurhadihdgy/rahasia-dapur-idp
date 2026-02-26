@@ -2,8 +2,8 @@ resources:
   - namespace.yaml
   - backend-configmap.yaml
   - backend-secret.yaml
-  - mongodb-deployment.yaml
-  - mongodb-service.yaml
+  - mongo-deployment.yaml
+  - mongo-service.yaml
   - backend-deployment.yaml
   - backend-service.yaml
   - frontend-deployment.yaml
