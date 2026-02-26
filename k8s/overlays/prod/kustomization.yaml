@@ -1,0 +1,7 @@
+namespace: rahasia-dapur
+
+resources:
+  - ../../base
+
+patchesStrategicMerge:
+  - replica-patch.yaml

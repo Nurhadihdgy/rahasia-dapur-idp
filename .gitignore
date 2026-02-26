@@ -1,0 +1,25 @@
+# Node
+node_modules/
+npm-debug.log
+
+# Env
+.env
+.env.*
+.env.dev
+.env.prod
+
+# Docker
+*.tar
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Build
+dist/
+build/
+

@@ -1,0 +1,44 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - ${ENV_FILE:-.env.dev}
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      database:
+        condition: service_healthy # Backend HANYA akan jalan jika database sudah 'Healthy'
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - VITE_API_URL=http://localhost:5000/api
+    depends_on:
+      backend:
+        condition: service_started # Menunggu kontainer backend mulai
+
+  database:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - dapur_data:/data/db
+    healthcheck:
+      # Perintah untuk mengecek apakah MongoDB siap menerima koneksi
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s   # Cek setiap 10 detik
+      timeout: 5s     # Batas waktu tunggu jawaban 5 detik
+      retries: 5      # Coba lagi maksimal 5 kali sebelum dianggap 'Unhealthy'
+      start_period: 10s # Berikan waktu 10 detik untuk database booting pertama kali
+
+volumes:
+  dapur_data:
