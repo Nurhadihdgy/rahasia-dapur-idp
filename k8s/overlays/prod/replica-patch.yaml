@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: rahasia-dapur-backend
 spec:
   replicas: 3
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: rahasia-dapur-frontend
 spec:
   replicas: 2
