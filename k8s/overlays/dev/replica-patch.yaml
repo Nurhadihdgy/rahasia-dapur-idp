@@ -1,13 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rahasia-dapur-backend
+  name: backend              # ⬅️ HARUS sama dengan base
+  namespace: rahasia-dapur
 spec:
   replicas: 1
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rahasia-dapur-frontend
+  name: frontend              # ⬅️ HARUS sama dengan base
+  namespace: rahasia-dapur
 spec:
   replicas: 1
