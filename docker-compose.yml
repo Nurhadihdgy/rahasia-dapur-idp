@@ -21,7 +21,7 @@ services:
     ports:
       - "80:80"
     environment:
-      - VITE_API_URL=http://localhost:5000/api
+      - VITE_API_URL=http://54.179.64.129:5000
     depends_on:
       backend:
         condition: service_started # Menunggu kontainer backend mulai
