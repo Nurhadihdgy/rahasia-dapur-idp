@@ -92,7 +92,7 @@ test.describe("Admin Tests", () => {
       .fill("Rebus");
 
     // FIX Upload file (hindari ENOENT)
-    const filePath = path.resolve(__dirname, "../e2e/test-data/sample.jpg");
+    const filePath = path.resolve(__dirname, "../tests/test-data/sample.jpg");
     await page.setInputFiles('input[type="file"]', filePath);
 
     await page.getByRole("button", { name: "Simpan Resep" }).click();
